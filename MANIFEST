@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+dist.ini
+lib/Any/Moose.pm
+t/001-basic.t
+t/002-other-modules.t
+t/100-canonicalize-fragments.t

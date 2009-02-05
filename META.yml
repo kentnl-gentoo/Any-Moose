@@ -1,0 +1,10 @@
+--- 
+abstract: use Moose or Mouse modules
+author: 
+  - Shawn M Moore <sartak@bestpractical.com>
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.003
+license: perl
+name: Any-Moose
+requires: {}
+
+version: 0.01

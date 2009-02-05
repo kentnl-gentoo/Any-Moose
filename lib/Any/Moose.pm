@@ -1,4 +1,6 @@
 package Any::Moose;
+our $VERSION = '0.01';
+
 use strict;
 use warnings;
 
@@ -139,6 +141,10 @@ __END__
 
 Any::Moose - use Moose or Mouse modules
 
+=head1 VERSION
+
+version 0.01
+
 =head1 SYNOPSIS
 
 =head2 BASIC
@@ -178,4 +184,3 @@ Any::Moose - use Moose or Mouse modules
 Shawn M Moore, C<sartak@bestpractical.com>
 
 =cut
-
