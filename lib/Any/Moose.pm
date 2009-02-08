@@ -1,5 +1,7 @@
 package Any::Moose;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
+
+# ABSTRACT: use Moose or Mouse modules
 
 use strict;
 use warnings;
@@ -46,7 +48,7 @@ sub _backer_of {
     return 'Mouse::Role' if $INC{'Mouse/Role.pm'}
                          && Mouse::Meta::Role->_metaclass_cache($pkg);
 
-    if ($INC{'Class/MOP.pm'}) {
+    if (is_moose_loaded()) {
         my $meta = Class::MOP::get_metaclass_by_name($pkg);
         if ($meta) {
             return 'Moose::Role' if $meta->isa('Moose::Meta::Role');
@@ -105,13 +107,22 @@ sub any_moose {
 
     # If we're loading up the backing class...
     if ($fragment eq 'Moose' || $fragment eq 'Moose::Role') {
-        $fragment =~ s/Moose/Mouse/ if !$INC{'Class/MOP.pm'};
+        $fragment =~ s/Moose/Mouse/ if !is_moose_loaded();
         return $fragment;
     }
 
     require Carp;
-    Carp::croak "Neither Moose nor Mouse backs the '$package' package.";
+    Carp::croak("Neither Moose nor Mouse backs the '$package' package.");
 }
+
+sub load_class {
+    my ($class_name) = @_;
+    return Class::MOP::load_class($class_name)
+        if is_moose_loaded();
+    return Mouse::load_class($class_name);
+}
+
+sub is_moose_loaded { !!$INC{'Class/MOP.pm'} }
 
 sub _canonicalize_fragment {
     my $fragment = shift;
@@ -135,15 +146,15 @@ sub _canonicalize_fragment {
 
 1;
 
-__END__
 
+__END__
 =head1 NAME
 
 Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -181,6 +192,12 @@ version 0.01
 
 =head1 AUTHOR
 
-Shawn M Moore, C<sartak@bestpractical.com>
+  Shawn M Moore <sartak@bestpractical.com>
 
-=cut
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Best Practical Solutions.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as perl itself.
+

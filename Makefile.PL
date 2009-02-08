@@ -9,7 +9,7 @@ WriteMakefile(
   NAME      => 'Any::Moose',
   AUTHOR    => 'Shawn\ M\ Moore\ \<sartak\@bestpractical\.com\>',
   ABSTRACT  => 'use Moose or Mouse modules',
-  VERSION   => '0.01',
+  VERSION   => '0.02',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {

@@ -1,10 +1,11 @@
+Changes
 LICENSE
 MANIFEST
 META.yml
 Makefile.PL
 README
-dist.ini
 lib/Any/Moose.pm
 t/001-basic.t
 t/002-other-modules.t
+t/003-is_moose_loaded.t
 t/100-canonicalize-fragments.t
