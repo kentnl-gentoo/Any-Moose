@@ -4,8 +4,13 @@ MANIFEST
 META.yml
 Makefile.PL
 README
+dist.ini
 lib/Any/Moose.pm
-t/001-basic.t
-t/002-other-modules.t
+t/001-basic-moose.t
+t/001-basic-mouse.t
+t/002-other-modules-moose.t
+t/002-other-modules-mouse.t
 t/003-is_moose_loaded.t
+t/010-use_mouse_roles.t
+t/011-use_moose_roles.t
 t/100-canonicalize-fragments.t

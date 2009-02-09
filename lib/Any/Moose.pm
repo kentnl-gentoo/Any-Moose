@@ -1,10 +1,12 @@
 package Any::Moose;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 # ABSTRACT: use Moose or Mouse modules
 
 use strict;
 use warnings;
+
+our $PREFERRED = $ENV{'ANY_MOOSE'};
 
 sub import {
     my $self = shift;
@@ -107,7 +109,14 @@ sub any_moose {
 
     # If we're loading up the backing class...
     if ($fragment eq 'Moose' || $fragment eq 'Moose::Role') {
-        $fragment =~ s/Moose/Mouse/ if !is_moose_loaded();
+        if (!$PREFERRED) {
+            $PREFERRED = is_moose_loaded() ? 'Moose' : 'Mouse';
+
+            (my $file = $PREFERRED . '.pm') =~ s{::}{/}g;
+            require $file;
+        }
+
+        $fragment =~ s/^Moose/Mouse/ if $PREFERRED eq 'Mouse';
         return $fragment;
     }
 
@@ -154,7 +163,7 @@ Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -190,6 +199,11 @@ version 0.02
     # gives you the right class name depending on which Mo*se was loaded
     extends any_moose('::Meta::Class');
 
+=head1 DESCRIPTION
+
+Actual documentation is forthcoming, once we solidify all the bits of the API.
+The examples above are very likely to continue working.
+
 =head1 AUTHOR
 
   Shawn M Moore <sartak@bestpractical.com>
@@ -200,4 +214,12 @@ This software is copyright (c) 2009 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as perl itself.
+
+=head1 AUTHORS
+
+Shawn M Moore, C<sartak@bestpractical.com>
+
+Florian Ragwitz C<rafl@debian.org>
+
+Stevan Little C<stevan@iinteractive.com>
 

@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use Test::More tests => 9;
 
+BEGIN { delete $ENV{ANY_MOOSE} }
+
 do {
     package Moused::Any::Moose;
     use Any::Moose;
@@ -20,19 +22,20 @@ do {
 
 ok(!Moused::Any::Moose->can('has'), "has was unimported");
 
-do {
-    package Just::Load::Moose;
-    use Moose;
-};
+SKIP: {
+    my $loaded_moose;
+    BEGIN { $loaded_moose = eval 'require Moose' }
+    skip "Moose required for these tests to be useful" => 3 unless $loaded_moose;
 
-do {
-    package Moosed::Any::Moose;
-    use Any::Moose;
+    do {
+        package After::Moose;
+        use Any::Moose;
 
-    ::is(any_moose, 'Moose');
-    ::is(any_moose('::Util::TypeConstraints'), 'Moose::Util::TypeConstraints');
+        ::is(any_moose, 'Mouse');
+        ::is(any_moose('::Util::TypeConstraints'), 'Mouse::Util::TypeConstraints');
 
-    no Any::Moose;
-};
+        no Any::Moose;
+    };
 
-ok(!Moosed::Any::Moose->can('has'), "has was unimported");
+    ok(!After::Moose->can('has'), "has was unimported");
+}
