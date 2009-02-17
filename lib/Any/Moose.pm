@@ -1,5 +1,5 @@
 package Any::Moose;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 # ABSTRACT: use Moose or Mouse modules
 
@@ -11,6 +11,13 @@ our $PREFERRED = $ENV{'ANY_MOOSE'};
 sub import {
     my $self = shift;
     my $pkg  = caller;
+
+    # Any::Moose gives you strict and warnings (but only the first time, in case
+    # you do something like: use Any::Moose; no strict 'refs')
+    if (!defined(_backer_of($pkg))) {
+        strict->import;
+        warnings->import;
+    }
 
     # first options are for Mo*se
     unshift @_, 'Moose' if !@_ || ref($_[0]);
@@ -138,11 +145,14 @@ sub _canonicalize_fragment {
 
     return 'Moose' if !defined($fragment);
 
+    # any_moose("X::Types") -> any_moose("MooseX::Types")
+    $fragment =~ s/^X::/MooseX::/;
+
     # any_moose("::Util") -> any_moose("Moose::Util")
     $fragment =~ s/^::/Moose::/;
 
     # any_moose("Mouse::Util") -> any_moose("Moose::Util")
-    $fragment =~ s/^Mouse\b/Moose/;
+    $fragment =~ s/^Mouse(X?)\b/Moose$1/;
 
     # any_moose("Util") -> any_moose("Moose::Util")
     $fragment =~ s/^(?!Moose)/Moose::/;
@@ -163,7 +173,7 @@ Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -196,6 +206,9 @@ version 0.03
         '::Util' => ['does_role'],
     );
 
+    # uses MouseX::Types
+    use Any::Moose 'X::Types';
+
     # gives you the right class name depending on which Mo*se was loaded
     extends any_moose('::Meta::Class');
 
@@ -204,9 +217,12 @@ version 0.03
 Actual documentation is forthcoming, once we solidify all the bits of the API.
 The examples above are very likely to continue working.
 
-=head1 AUTHOR
+=head1 AUTHORS
 
   Shawn M Moore <sartak@bestpractical.com>
+  Florian Ragwitz <rafl@debian.org>
+  Stevan Little <stevan@iinteractive.com>
+  Tokuhiro Matsuno <tokuhirom@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -214,12 +230,4 @@ This software is copyright (c) 2009 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as perl itself.
-
-=head1 AUTHORS
-
-Shawn M Moore, C<sartak@bestpractical.com>
-
-Florian Ragwitz C<rafl@debian.org>
-
-Stevan Little C<stevan@iinteractive.com>
 
