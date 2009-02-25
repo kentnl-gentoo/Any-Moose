@@ -5,9 +5,9 @@ author:
   - Florian Ragwitz <rafl@debian.org>
   - Stevan Little <stevan@iinteractive.com>
   - Tokuhiro Matsuno <tokuhirom@gmail.com>
-generated_by: Dist::Zilla::Plugin::MetaYaml version 1.003
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.004
 license: perl
 name: Any-Moose
 requires: 
   Mouse: 0.15
-version: 0.04
+version: 0.05
