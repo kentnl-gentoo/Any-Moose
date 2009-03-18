@@ -1,5 +1,5 @@
 package Any::Moose;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 # ABSTRACT: use Moose or Mouse modules
 
@@ -138,6 +138,13 @@ sub load_class {
     return Mouse::load_class($class_name);
 }
 
+sub is_class_loaded {
+    my ($class_name) = @_;
+    return Class::MOP::is_class_loaded($class_name)
+        if is_moose_loaded();
+    return Mouse::is_class_loaded($class_name);
+}
+
 sub is_moose_loaded { !!$INC{'Class/MOP.pm'} }
 
 sub _canonicalize_fragment {
@@ -173,7 +180,7 @@ Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 
