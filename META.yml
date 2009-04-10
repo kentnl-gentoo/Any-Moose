@@ -9,5 +9,5 @@ generated_by: Dist::Zilla::Plugin::MetaYaml version 1.004
 license: perl
 name: Any-Moose
 requires: 
-  Mouse: 0.15
-version: 0.06
+  Mouse: 0.20
+version: 0.07
