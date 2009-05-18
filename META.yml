@@ -10,4 +10,4 @@ license: perl
 name: Any-Moose
 requires: 
   Mouse: 0.20
-version: 0.07
+version: 0.08
