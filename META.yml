@@ -1,13 +1,13 @@
---- 
+---
 abstract: use Moose or Mouse modules
-author: 
-  - Shawn M Moore <sartak@bestpractical.com>
-  - Florian Ragwitz <rafl@debian.org>
-  - Stevan Little <stevan@iinteractive.com>
-  - Tokuhiro Matsuno <tokuhirom@gmail.com>
-generated_by: Dist::Zilla::Plugin::MetaYaml version 1.004
+author:
+- Shawn M Moore <sartak@bestpractical.com>
+- Florian Ragwitz <rafl@debian.org>
+- Stevan Little <stevan@iinteractive.com>
+- Tokuhiro Matsuno <tokuhirom@gmail.com>
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.091260
 license: perl
 name: Any-Moose
-requires: 
-  Mouse: 0.20
-version: 0.08
+requires:
+  Mouse: '0.21'
+version: '0.09'

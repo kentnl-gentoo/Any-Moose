@@ -9,10 +9,10 @@ WriteMakefile(
   NAME      => 'Any::Moose',
   AUTHOR    => 'Shawn\ M\ Moore\ \<sartak\@bestpractical\.com\>\,\ Florian\ Ragwitz\ \<rafl\@debian\.org\>\,\ Stevan\ Little\ \<stevan\@iinteractive\.com\>\,\ Tokuhiro\ Matsuno\ \<tokuhirom\@gmail\.com\>',
   ABSTRACT  => 'use Moose or Mouse modules',
-  VERSION   => '0.08',
+  VERSION   => '0.09',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
-    "Mouse" => '0.20',
+    "Mouse" => '0.21',
   },
 );
