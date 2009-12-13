@@ -12,11 +12,12 @@ BEGIN {
 }
 
 {
-    package MyFoo;
-    use Any::Moose;
+    package My::Package;
+    use Any::Moose '::Util::TypeConstraints' => [qw(type)];
+
+    ::ok defined(&type);
+
+    no Any::Moose '::Util::TypeConstraints';
 }
 
-package main;
-ok(Any::Moose::is_class_loaded('Mouse'));
-ok(!Any::Moose::is_class_loaded('Meese'));
-
+ok !My::Package->can('type');

@@ -17,5 +17,10 @@ t/005-is_class_loaded-moose.t
 t/005-is_class_loaded-mouse.t
 t/010-use_mouse_roles.t
 t/011-use_moose_roles.t
+t/012-use_moose_util.t
+t/012-use_mouse_util.t
 t/020-strict.t
 t/100-canonicalize-fragments.t
+t/101-localize-errvar.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t

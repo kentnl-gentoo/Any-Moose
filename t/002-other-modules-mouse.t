@@ -1,9 +1,15 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More tests => 2;
+use Test::More;
 
 BEGIN { delete $ENV{ANY_MOOSE} }
+
+BEGIN {
+    eval 'require Mouse';
+    plan skip_all => 'Mouse not available' if $@;
+    plan tests => 2;
+}
 
 do {
     package Moused::Any::Moose;
@@ -11,7 +17,7 @@ do {
     use Any::Moose '::Util::TypeConstraints' => ['subtype', 'as'];
 
     subtype 'XYZ' => as 'Int';
-    ::ok(Mouse::Util::TypeConstraints::optimized_constraints()->{XYZ}, 'subtype used Mouse');
+    ::ok(Mouse::Util::TypeConstraints::find_type_constraint('XYZ'), 'subtype used Mouse');
 };
 
 SKIP: {
@@ -26,8 +32,7 @@ SKIP: {
         use Any::Moose '::Util::TypeConstraints' => ['subtype', 'as'];
 
         subtype 'ABC' => as 'Int';
-        #::ok(Mouse::Util::TypeConstraints::find_type_constraint('ABC'), 'subtype used Mouse');
-        ::ok(Mouse::Util::TypeConstraints::optimized_constraints()->{ABC}, 'subtype used Mouse');
+        ::ok(Mouse::Util::TypeConstraints::find_type_constraint('ABC'), 'subtype used Mouse');
     };
 };
 
