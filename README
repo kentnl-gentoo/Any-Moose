@@ -1,12 +1,13 @@
 
 
-This archive contains the distribution Any-Moose, version
-0.11:
+This archive contains the distribution Any-Moose,
+version 0.12:
 
   use Moose or Mouse modules
 
-This software is copyright (c) 2009 by Best Practical Solutions.
+This software is copyright (c) 2010 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
+
 
