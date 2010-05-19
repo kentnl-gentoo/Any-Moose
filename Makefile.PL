@@ -21,7 +21,7 @@ my %WriteMakefileArgs = (
                        'BUILD_REQUIRES' => {},
                        'ABSTRACT' => 'use Moose or Mouse modules',
                        'EXE_FILES' => [],
-                       'VERSION' => '0.12',
+                       'VERSION' => '0.13',
                        'PREREQ_PM' => {
                                         'Mouse' => '0.40'
                                       },

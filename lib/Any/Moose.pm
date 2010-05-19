@@ -1,6 +1,6 @@
 package Any::Moose;
 BEGIN {
-  $Any::Moose::VERSION = '0.12';
+  $Any::Moose::VERSION = '0.13';
 }
 # ABSTRACT: use Moose or Mouse modules
 
@@ -179,7 +179,15 @@ sub any_moose {
     return $fragment;
 }
 
-for my $name (qw/load_class is_class_loaded class_of get_metaclass_by_name get_all_metaclass_instances get_all_metaclass_names/) {
+for my $name (qw/
+    load_class
+    is_class_loaded
+    class_of
+    get_metaclass_by_name
+    get_all_metaclass_instances
+    get_all_metaclass_names
+    load_first_existing_class
+        /) {
     no strict 'refs';
     *{__PACKAGE__."::$name"} = moose_is_preferred()
         ? *{"Class::MOP::$name"}
@@ -228,7 +236,7 @@ Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 SYNOPSIS
 
