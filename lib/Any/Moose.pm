@@ -1,6 +1,6 @@
 package Any::Moose;
 BEGIN {
-  $Any::Moose::VERSION = '0.13';
+  $Any::Moose::VERSION = '0.14';
 }
 # ABSTRACT: use Moose or Mouse modules
 
@@ -236,13 +236,11 @@ Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 SYNOPSIS
 
-
 =head2 BASIC
-
 
     package Class;
 
@@ -254,7 +252,6 @@ version 0.13
 
 =head2 OTHER MODULES
 
-
     package Other::Class;
     use Any::Moose;
 
@@ -264,14 +261,12 @@ version 0.13
 
 =head2 ROLES
 
-
     package My::Sorter;
     use Any::Moose 'Role';
 
     requires 'cmp';
 
 =head2 COMPLEX USAGE
-
 
     package My::Meta::Class;
     use Any::Moose;
@@ -292,12 +287,10 @@ version 0.13
 
 =head1 DESCRIPTION
 
-
 Though we recommend that people generally use L<Moose>, we accept that Moose
 cannot yet be used for everything everywhere. People generally like the Moose
 sugar, so many people use L<Mouse>, a lightweight replacement for parts of
 Moose.
-
 
 Because Mouse strives for compatibility with Moose, it's easy to substitute one
 for the other. This module facilitates that substitution. By default, Mouse
@@ -306,23 +299,18 @@ explicitly requested by the end-user. The end-user can force the decision
 of which backend to use by setting the environment variable C<ANY_MOOSE> to
 be C<Moose> or C<Mouse>.
 
-
 Note that the decision of which backend to use is made only once, so that if
 Any-Moose picks Mouse, then a third-party library loads Moose, anything else
 that uses Any-Moose will continue to pick Mouse.
-
 
 So, if you have to use L<Mouse>, please be considerate to the Moose fanboys
 (like myself!) and use L<Any-Moose> instead. C<:)>
 
 =head1 SEE ALSO
 
-
 L<Moose>
 
-
 L<Mouse>
-
 
 L<Squirrel> - a deprecated first-stab at Any-Moose-like logic. Its biggest
 fault was in making the decision of which backend to use every time it was
@@ -330,15 +318,33 @@ used, rather than just once.
 
 =head1 AUTHORS
 
-  Shawn M Moore <sartak@bestpractical.com>
-  Florian Ragwitz <rafl@debian.org>
-  Stevan Little <stevan@iinteractive.com>
-  Tokuhiro Matsuno <tokuhirom@gmail.com>
-  Goro Fuji <gfuji@cpan.org>
+=over 4
+
+=item *
+
+Shawn M Moore <sartak@bestpractical.com>
+
+=item *
+
+Florian Ragwitz <rafl@debian.org>
+
+=item *
+
+Stevan Little <stevan@iinteractive.com>
+
+=item *
+
+Tokuhiro Matsuno <tokuhirom@gmail.com>
+
+=item *
+
+Goro Fuji <gfuji@cpan.org>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Best Practical Solutions.
+This software is copyright (c) 2011 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
