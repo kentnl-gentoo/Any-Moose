@@ -4,6 +4,7 @@ MANIFEST
 META.yml
 Makefile.PL
 README
+devel/test-combos.pl
 dist.ini
 lib/Any/Moose.pm
 t/000-version.t

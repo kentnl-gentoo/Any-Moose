@@ -1,6 +1,6 @@
 package Any::Moose;
 BEGIN {
-  $Any::Moose::VERSION = '0.14';
+  $Any::Moose::VERSION = '0.15';
 }
 # ABSTRACT: use Moose or Mouse modules
 
@@ -236,7 +236,7 @@ Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
