@@ -6,10 +6,12 @@ Makefile.PL
 README
 devel/test-combos.pl
 dist.ini
+inc/MakeMaker.pm
 lib/Any/Moose.pm
 t/000-version.t
 t/001-basic-moose.t
 t/001-basic-mouse.t
+t/001-basic.t
 t/002-other-modules-moose.t
 t/002-other-modules-mouse.t
 t/003-is_moose_loaded.t
