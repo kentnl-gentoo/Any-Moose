@@ -9,7 +9,7 @@ author:
 build_requires: {}
 configure_requires:
   ExtUtils::MakeMaker: 6.30
-dynamic_config: 0
+dynamic_config: 1
 generated_by: 'Dist::Zilla version 4.200015, CPAN::Meta::Converter version 2.112150'
 license: perl
 meta-spec:
@@ -18,4 +18,4 @@ meta-spec:
 name: Any-Moose
 requires:
   perl: 5.006_002
-version: 0.16
+version: 0.17
