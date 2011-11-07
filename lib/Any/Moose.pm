@@ -1,6 +1,6 @@
 package Any::Moose;
 {
-  $Any::Moose::VERSION = '0.17';
+  $Any::Moose::VERSION = '0.18';
 }
 # ABSTRACT: use Moose or Mouse modules
 
@@ -236,7 +236,7 @@ Any::Moose - use Moose or Mouse modules
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 SYNOPSIS
 
@@ -322,7 +322,7 @@ used, rather than just once.
 
 =item *
 
-Shawn M Moore <sartak@bestpractical.com>
+Shawn M Moore <sartak@gmail.com>
 
 =item *
 
@@ -339,6 +339,10 @@ Tokuhiro Matsuno <tokuhirom@gmail.com>
 =item *
 
 Goro Fuji <gfuji@cpan.org>
+
+=item *
+
+Ricardo Signes <rjbs@cpan.org>
 
 =back
 

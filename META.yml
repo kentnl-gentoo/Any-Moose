@@ -1,16 +1,17 @@
 ---
 abstract: 'use Moose or Mouse modules'
 author:
-  - 'Shawn M Moore <sartak@bestpractical.com>'
+  - 'Shawn M Moore <sartak@gmail.com>'
   - 'Florian Ragwitz <rafl@debian.org>'
   - 'Stevan Little <stevan@iinteractive.com>'
   - 'Tokuhiro Matsuno <tokuhirom@gmail.com>'
   - 'Goro Fuji <gfuji@cpan.org>'
+  - 'Ricardo Signes <rjbs@cpan.org>'
 build_requires: {}
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 1
-generated_by: 'Dist::Zilla version 4.200015, CPAN::Meta::Converter version 2.112150'
+generated_by: 'Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112150'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -18,4 +19,4 @@ meta-spec:
 name: Any-Moose
 requires:
   perl: 5.006_002
-version: 0.17
+version: 0.18

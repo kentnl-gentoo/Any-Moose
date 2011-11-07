@@ -7,7 +7,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   'ABSTRACT' => 'use Moose or Mouse modules',
-  'AUTHOR' => 'Shawn M Moore <sartak@bestpractical.com>, Florian Ragwitz <rafl@debian.org>, Stevan Little <stevan@iinteractive.com>, Tokuhiro Matsuno <tokuhirom@gmail.com>, Goro Fuji <gfuji@cpan.org>',
+  'AUTHOR' => 'Shawn M Moore <sartak@gmail.com>, Florian Ragwitz <rafl@debian.org>, Stevan Little <stevan@iinteractive.com>, Tokuhiro Matsuno <tokuhirom@gmail.com>, Goro Fuji <gfuji@cpan.org>, Ricardo Signes <rjbs@cpan.org>',
   'BUILD_REQUIRES' => {},
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.30'
@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'Any::Moose',
   'PREREQ_PM' => {},
-  'VERSION' => '0.17',
+  'VERSION' => '0.18',
   'test' => {
     'TESTS' => 't/*.t'
   }
@@ -28,6 +28,8 @@ $WriteMakefileArgs{PREREQ_PM} ||= {};
 
 if (eval { require Moose }) {
   # we have any version of Moose; good enough! -- rjbs, 2011-09-15
+  # This should fix a crufty edge-case with cpantesting -- bingos, 2011-11-07
+  $WriteMakefileArgs{PREREQ_PM}{Moose} = '0';
 } else {
   # No Moose?  Well, we need *something* to test with, so we'll ask for the
   # lighter-weight one, Mouse. -- rjbs, 2011-09-15
