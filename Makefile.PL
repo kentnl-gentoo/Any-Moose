@@ -6,7 +6,7 @@ use warnings;
 use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'use Moose or Mouse modules',
+  'ABSTRACT' => '*deprecated* - use Moo instead!',
   'AUTHOR' => 'Shawn M Moore <sartak@gmail.com>, Florian Ragwitz <rafl@debian.org>, Stevan Little <stevan@iinteractive.com>, Tokuhiro Matsuno <tokuhirom@gmail.com>, Goro Fuji <gfuji@cpan.org>, Ricardo Signes <rjbs@cpan.org>',
   'BUILD_REQUIRES' => {},
   'CONFIGURE_REQUIRES' => {
@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'Any::Moose',
   'PREREQ_PM' => {},
-  'VERSION' => '0.18',
+  'VERSION' => '0.19',
   'test' => {
     'TESTS' => 't/*.t'
   }

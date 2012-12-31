@@ -1,11 +1,11 @@
 
 
 This archive contains the distribution Any-Moose,
-version 0.18:
+version 0.19:
 
-  use Moose or Mouse modules
+  *deprecated* - use Moo instead!
 
-This software is copyright (c) 2011 by Best Practical Solutions.
+This software is copyright (c) 2012 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

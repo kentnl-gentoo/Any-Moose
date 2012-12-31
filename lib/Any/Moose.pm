@@ -1,8 +1,8 @@
 package Any::Moose;
 {
-  $Any::Moose::VERSION = '0.18';
+  $Any::Moose::VERSION = '0.19';
 }
-# ABSTRACT: use Moose or Mouse modules
+# ABSTRACT: *deprecated* - use Moo instead!
 
 use 5.006_002;
 use strict;
@@ -232,11 +232,11 @@ sub _canonicalize_fragment {
 
 =head1 NAME
 
-Any::Moose - use Moose or Mouse modules
+Any::Moose - *deprecated* - use Moo instead!
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 SYNOPSIS
 
@@ -306,6 +306,23 @@ that uses Any-Moose will continue to pick Mouse.
 So, if you have to use L<Mouse>, please be considerate to the Moose fanboys
 (like myself!) and use L<Any-Moose> instead. C<:)>
 
+=head1 DEPRECATION
+
+Please use L<Moo> instead of Any::Moose for new code.
+
+Moo classes and roles will transparently and correctly upgrade to
+Moose when needed. This is a fundamentally better design than what
+Any::Moose offers. Mouse metaclasses do not interact with Moose
+metaclasses which leaks abstractions all over the place.
+
+Any::Moose had a good run. It was a simplistic but expedient answer
+for getting Moose syntax on the cheap but with the transparent
+upgrade path to Moose when you needed it. But really, please don't
+use it any more. :)
+
+You may find L<MooX::late> useful for porting your code from
+Any::Moose to Moo.
+
 =head1 SEE ALSO
 
 L<Moose>
@@ -348,7 +365,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Best Practical Solutions.
+This software is copyright (c) 2012 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
