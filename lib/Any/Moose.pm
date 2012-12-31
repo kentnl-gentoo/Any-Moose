@@ -1,6 +1,6 @@
 package Any::Moose;
 {
-  $Any::Moose::VERSION = '0.19';
+  $Any::Moose::VERSION = '0.20';
 }
 # ABSTRACT: *deprecated* - use Moo instead!
 
@@ -236,75 +236,7 @@ Any::Moose - *deprecated* - use Moo instead!
 
 =head1 VERSION
 
-version 0.19
-
-=head1 SYNOPSIS
-
-=head2 BASIC
-
-    package Class;
-
-    # uses Moose if it's loaded or demanded, Mouse otherwise
-    use Any::Moose;
-
-    # cleans the namespace up
-    no Any::Moose;
-
-=head2 OTHER MODULES
-
-    package Other::Class;
-    use Any::Moose;
-
-    # uses Moose::Util::TypeConstraints if the class has loaded Moose,
-    # Mouse::Util::TypeConstraints otherwise.
-    use Any::Moose '::Util::TypeConstraints';
-
-=head2 ROLES
-
-    package My::Sorter;
-    use Any::Moose 'Role';
-
-    requires 'cmp';
-
-=head2 COMPLEX USAGE
-
-    package My::Meta::Class;
-    use Any::Moose;
-
-    # uses subtype from Moose::Util::TypeConstraints if the class loaded Moose,
-    # subtype from Mouse::Util::TypeConstraints otherwise.
-    # similarly for Mo*se::Util's does_role
-    use Any::Moose (
-        '::Util::TypeConstraints' => ['subtype'],
-        '::Util' => ['does_role'],
-    );
-
-    # uses MouseX::Types or MooseX::Types
-    use Any::Moose 'X::Types';
-
-    # gives you the right class name depending on which Mo*se was loaded
-    extends any_moose('::Meta::Class');
-
-=head1 DESCRIPTION
-
-Though we recommend that people generally use L<Moose>, we accept that Moose
-cannot yet be used for everything everywhere. People generally like the Moose
-sugar, so many people use L<Mouse>, a lightweight replacement for parts of
-Moose.
-
-Because Mouse strives for compatibility with Moose, it's easy to substitute one
-for the other. This module facilitates that substitution. By default, Mouse
-will be provided to libraries, unless Moose is already loaded -or-
-explicitly requested by the end-user. The end-user can force the decision
-of which backend to use by setting the environment variable C<ANY_MOOSE> to
-be C<Moose> or C<Mouse>.
-
-Note that the decision of which backend to use is made only once, so that if
-Any-Moose picks Mouse, then a third-party library loads Moose, anything else
-that uses Any-Moose will continue to pick Mouse.
-
-So, if you have to use L<Mouse>, please be considerate to the Moose fanboys
-(like myself!) and use L<Any-Moose> instead. C<:)>
+version 0.20
 
 =head1 DEPRECATION
 
@@ -323,15 +255,8 @@ use it any more. :)
 You may find L<MooX::late> useful for porting your code from
 Any::Moose to Moo.
 
-=head1 SEE ALSO
-
-L<Moose>
-
-L<Mouse>
-
-L<Squirrel> - a deprecated first-stab at Any-Moose-like logic. Its biggest
-fault was in making the decision of which backend to use every time it was
-used, rather than just once.
+For the sparse documentation Any::Moose used to include, see
+L<https://metacpan.org/module/SARTAK/Any-Moose-0.18/lib/Any/Moose.pm>
 
 =head1 AUTHORS
 
