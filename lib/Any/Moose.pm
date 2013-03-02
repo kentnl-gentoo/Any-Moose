@@ -1,6 +1,6 @@
 package Any::Moose;
 {
-  $Any::Moose::VERSION = '0.20';
+  $Any::Moose::VERSION = '0.21';
 }
 # ABSTRACT: *deprecated* - use Moo instead!
 
@@ -236,9 +236,11 @@ Any::Moose - *deprecated* - use Moo instead!
 
 =head1 VERSION
 
-version 0.20
+version 0.21
 
 =head1 DEPRECATION
+
+日本語翻訳: http://blog.64p.org/entry/2013/02/06/094906
 
 Please use L<Moo> instead of Any::Moose for new code.
 
@@ -290,7 +292,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Best Practical Solutions.
+This software is copyright (c) 2013 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
