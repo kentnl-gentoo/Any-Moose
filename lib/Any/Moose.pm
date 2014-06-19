@@ -1,8 +1,11 @@
 package Any::Moose;
-{
-  $Any::Moose::VERSION = '0.21';
+BEGIN {
+  $Any::Moose::AUTHORITY = 'cpan:SARTAK';
 }
+# git description: v0.21-9-g43d8dd6
+$Any::Moose::VERSION = '0.22';
 # ABSTRACT: *deprecated* - use Moo instead!
+# KEYWORDS: Moose Mouse abstraction layer object-oriented
 
 use 5.006_002;
 use strict;
@@ -227,8 +230,11 @@ sub _canonicalize_fragment {
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -236,7 +242,7 @@ Any::Moose - *deprecated* - use Moo instead!
 
 =head1 VERSION
 
-version 0.21
+version 0.22
 
 =head1 DEPRECATION
 
@@ -292,13 +298,43 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Best Practical Solutions.
+This software is copyright (c) 2014 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
+
+Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+
+=item *
+
+Karen Etheridge <ether@cpan.org>
+
+=item *
+
+Shawn M Moore <code@sartak.org>
+
+=item *
+
+Shawn M Moore <sartak@bestpractical.com>
+
+=item *
+
+Stevan Little <stevan@localhost.(none)>
+
+=item *
+
+gfx <gfuji@cpan.org>
+
+=item *
+
+tokuhirom <tokuhirom@gmail.com>
+
+=back
+
 =cut
-
-
-__END__
-
