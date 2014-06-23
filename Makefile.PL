@@ -11,7 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "*deprecated* - use Moo instead!",
-  "AUTHOR" => "Shawn M Moore <sartak\@gmail.com>, Florian Ragwitz <rafl\@debian.org>, Stevan Little <stevan\@iinteractive.com>, Tokuhiro Matsuno <tokuhirom\@gmail.com>, Goro Fuji <gfuji\@cpan.org>, Ricardo Signes <rjbs\@cpan.org>",
+  "AUTHOR" => "Shawn M Moore <code\@sartak.org>, Florian Ragwitz <rafl\@debian.org>, Stevan Little <stevan\@iinteractive.com>, Tokuhiro Matsuno <tokuhirom\@gmail.com>, Goro Fuji <gfuji\@cpan.org>, Ricardo Signes <rjbs\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -31,7 +31,7 @@ my %WriteMakefileArgs = (
     "Test::More" => 0,
     "version" => 0
   },
-  "VERSION" => "0.22",
+  "VERSION" => "0.23",
   "test" => {
     "TESTS" => "t/*.t"
   }

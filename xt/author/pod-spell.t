@@ -12,7 +12,7 @@ all_pod_files_spelling_ok( qw( bin lib  ) );
 __DATA__
 Shawn
 Moore
-sartak
+code
 Florian
 Ragwitz
 rafl
@@ -35,10 +35,12 @@ Chris
 BinGOs
 Williams
 chris
+Graham
+Knop
+haarg
 Karen
 Etheridge
 ether
-code
 gfx
 lib
 Any

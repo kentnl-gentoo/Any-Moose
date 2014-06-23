@@ -34,7 +34,13 @@ sub _merge_requires {
 }
 
 my %include = map {; $_ => 1 } qw(
-
+  Class::MOP
+  Moose
+  MooseX::Types
+  Mouse
+  MouseX::Types
+  Moo
+  Role::Tiny
 );
 
 my %exclude = map {; $_ => 1 } qw(

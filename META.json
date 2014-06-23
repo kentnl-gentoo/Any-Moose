@@ -1,7 +1,7 @@
 {
    "abstract" : "*deprecated* - use Moo instead!",
    "author" : [
-      "Shawn M Moore <sartak@gmail.com>",
+      "Shawn M Moore <code@sartak.org>",
       "Florian Ragwitz <rafl@debian.org>",
       "Stevan Little <stevan@iinteractive.com>",
       "Tokuhiro Matsuno <tokuhirom@gmail.com>",
@@ -90,7 +90,7 @@
    "provides" : {
       "Any::Moose" : {
          "file" : "lib/Any/Moose.pm",
-         "version" : "0.22"
+         "version" : "0.23"
       }
    },
    "release_status" : "stable",
@@ -108,10 +108,10 @@
       "x_IRC" : "irc://irc.perl.org/#moose",
       "x_MailingList" : "http://lists.perl.org/list/moose.html"
    },
-   "version" : "0.22",
+   "version" : "0.23",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.020000"
+         "version" : "5.021001"
       },
       "plugins" : [
          {
@@ -132,7 +132,7 @@
          {
             "class" : "Dist::Zilla::Plugin::EnsurePrereqsInstalled",
             "name" : "@Author::ETHER/EnsurePrereqsInstalled",
-            "version" : "0.003"
+            "version" : "0.004"
          },
          {
             "class" : "Dist::Zilla::Plugin::PromptIfStale",
@@ -705,7 +705,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.22",
+                  "tag" : "v0.23",
                   "tag_format" : "v%v%t",
                   "tag_message" : "v%v%t",
                   "time_zone" : "local"
@@ -849,10 +849,9 @@
    "x_authority" : "cpan:SARTAK",
    "x_contributors" : [
       "Chris 'BinGOs' Williams <chris@bingosnet.co.uk>",
+      "Graham Knop <haarg@haarg.org>",
       "Karen Etheridge <ether@cpan.org>",
-      "Shawn M Moore <code@sartak.org>",
-      "Shawn M Moore <sartak@bestpractical.com>",
-      "Stevan Little <stevan@localhost.(none)>",
+      "Stevan Little <stevan.little@iinteractive.com>",
       "gfx <gfuji@cpan.org>",
       "tokuhirom <tokuhirom@gmail.com>"
    ]

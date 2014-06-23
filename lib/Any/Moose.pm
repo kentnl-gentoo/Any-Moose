@@ -2,8 +2,8 @@ package Any::Moose;
 BEGIN {
   $Any::Moose::AUTHORITY = 'cpan:SARTAK';
 }
-# git description: v0.21-9-g43d8dd6
-$Any::Moose::VERSION = '0.22';
+# git description: v0.22-5-g00d43a6
+$Any::Moose::VERSION = '0.23';
 # ABSTRACT: *deprecated* - use Moo instead!
 # KEYWORDS: Moose Mouse abstraction layer object-oriented
 
@@ -29,6 +29,9 @@ do {
         elsif ($PREFERRED eq 'Mouse' && !eval { require Mouse }) {
             warn "\$ANY_MOOSE is set to Mouse but we cannot load it";
         }
+    }
+    elsif ( $INC{'Moo.pm'} && eval { require Moose } ) {
+        $PREFERRED = 'Moose';
     }
     elsif (_is_moose_loaded()) {
         $PREFERRED = 'Moose';
@@ -242,7 +245,7 @@ Any::Moose - *deprecated* - use Moo instead!
 
 =head1 VERSION
 
-version 0.22
+version 0.23
 
 =head1 DEPRECATION
 
@@ -272,7 +275,7 @@ L<https://metacpan.org/module/SARTAK/Any-Moose-0.18/lib/Any/Moose.pm>
 
 =item *
 
-Shawn M Moore <sartak@gmail.com>
+Shawn M Moore <code@sartak.org>
 
 =item *
 
@@ -313,19 +316,15 @@ Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
 
 =item *
 
+Graham Knop <haarg@haarg.org>
+
+=item *
+
 Karen Etheridge <ether@cpan.org>
 
 =item *
 
-Shawn M Moore <code@sartak.org>
-
-=item *
-
-Shawn M Moore <sartak@bestpractical.com>
-
-=item *
-
-Stevan Little <stevan@localhost.(none)>
+Stevan Little <stevan.little@iinteractive.com>
 
 =item *
 
