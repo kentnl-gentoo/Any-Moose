@@ -2,8 +2,8 @@ package Any::Moose;
 BEGIN {
   $Any::Moose::AUTHORITY = 'cpan:SARTAK';
 }
-# git description: v0.22-5-g00d43a6
-$Any::Moose::VERSION = '0.23';
+# git description: v0.23-2-g25d6466
+$Any::Moose::VERSION = '0.24';
 # ABSTRACT: *deprecated* - use Moo instead!
 # KEYWORDS: Moose Mouse abstraction layer object-oriented
 
@@ -245,7 +245,7 @@ Any::Moose - *deprecated* - use Moo instead!
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 DEPRECATION
 

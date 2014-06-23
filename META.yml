@@ -35,7 +35,7 @@ no_index:
 provides:
   Any::Moose:
     file: lib/Any/Moose.pm
-    version: '0.23'
+    version: '0.24'
 requires:
   Carp: '0'
   perl: 5.006_002
@@ -47,7 +47,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Any-Moose
   homepage: https://github.com/moose/Any-Moose
   repository: https://github.com/moose/Any-Moose.git
-version: '0.23'
+version: '0.24'
 x_Dist_Zilla:
   perl:
     version: '5.021001'
@@ -504,7 +504,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.23
+          tag: v0.24
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local
