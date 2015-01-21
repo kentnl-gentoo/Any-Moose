@@ -1,12 +1,7 @@
-package Any::Moose;
-BEGIN {
-  $Any::Moose::AUTHORITY = 'cpan:SARTAK';
-}
-# git description: v0.23-2-g25d6466
-$Any::Moose::VERSION = '0.24';
-# ABSTRACT: *deprecated* - use Moo instead!
-# KEYWORDS: Moose Mouse abstraction layer object-oriented
-
+package Any::Moose; # git description: v0.24-4-gb034fd7
+# ABSTRACT: (DEPRECATED) use Moo instead!
+# KEYWORDS: deprecated Moose Mouse abstraction layer object-oriented
+$Any::Moose::VERSION = '0.25';
 use 5.006_002;
 use strict;
 use warnings;
@@ -36,7 +31,7 @@ do {
     elsif (_is_moose_loaded()) {
         $PREFERRED = 'Moose';
     }
-    elsif (eval { require Mouse }) {
+    elsif (eval { require Mouse; Mouse->VERSION('0.3701'); 1 }) {
         $PREFERRED = 'Mouse';
     }
     elsif (eval { require Moose }) {
@@ -105,7 +100,9 @@ sub unimport {
 sub _backer_of {
     my $pkg = shift;
 
-    if(exists $INC{'Mouse.pm'}){
+    if(exists $INC{'Mouse.pm'}
+        and Mouse::Util->can('get_metaclass_by_name')
+      ){
         my $meta = Mouse::Util::get_metaclass_by_name($pkg);
         if ($meta) {
             return 'Mouse::Role' if $meta->isa('Mouse::Meta::Role');
@@ -241,11 +238,11 @@ __END__
 
 =head1 NAME
 
-Any::Moose - *deprecated* - use Moo instead!
+Any::Moose - (DEPRECATED) use Moo instead!
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 DEPRECATION
 
@@ -301,22 +298,16 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Best Practical Solutions.
+This software is copyright (c) 2015 by Best Practical Solutions.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =head1 CONTRIBUTORS
 
+=for stopwords Karen Etheridge gfx Graham Knop Stevan Little tokuhirom Chris 'BinGOs' Williams
+
 =over 4
-
-=item *
-
-Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
-
-=item *
-
-Graham Knop <haarg@haarg.org>
 
 =item *
 
@@ -324,15 +315,23 @@ Karen Etheridge <ether@cpan.org>
 
 =item *
 
-Stevan Little <stevan.little@iinteractive.com>
-
-=item *
-
 gfx <gfuji@cpan.org>
 
 =item *
 
+Graham Knop <haarg@haarg.org>
+
+=item *
+
+Stevan Little <stevan.little@iinteractive.com>
+
+=item *
+
 tokuhirom <tokuhirom@gmail.com>
+
+=item *
+
+Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
 
 =back
 
