@@ -1,7 +1,7 @@
-package Any::Moose; # git description: v0.24-4-gb034fd7
+package Any::Moose; # git description: v0.25-2-g151f81b
 # ABSTRACT: (DEPRECATED) use Moo instead!
 # KEYWORDS: deprecated Moose Mouse abstraction layer object-oriented
-$Any::Moose::VERSION = '0.25';
+$Any::Moose::VERSION = '0.26';
 use 5.006_002;
 use strict;
 use warnings;
@@ -31,7 +31,7 @@ do {
     elsif (_is_moose_loaded()) {
         $PREFERRED = 'Moose';
     }
-    elsif (eval { require Mouse; Mouse->VERSION('0.3701'); 1 }) {
+    elsif (eval { require Mouse; require Mouse::Util; Mouse::Util->can('get_metaclass_by_name') }) {
         $PREFERRED = 'Mouse';
     }
     elsif (eval { require Moose }) {
@@ -242,7 +242,7 @@ Any::Moose - (DEPRECATED) use Moo instead!
 
 =head1 VERSION
 
-version 0.25
+version 0.26
 
 =head1 DEPRECATION
 

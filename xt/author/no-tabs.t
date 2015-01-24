@@ -29,6 +29,7 @@ my @files = (
     't/100-canonicalize-fragments.t',
     't/101-localize-errvar.t',
     't/lib/AnyMooseTest.pm',
+    't/zzz-check-breaks.t',
     'xt/author/00-compile.t',
     'xt/author/eol.t',
     'xt/author/no-tabs.t',

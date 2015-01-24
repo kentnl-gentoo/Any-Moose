@@ -10,7 +10,7 @@ author:
 build_requires:
   ExtUtils::MakeMaker: '0'
   File::Spec: '0'
-  Test::More: '0'
+  Test::More: '0.88'
   perl: 5.006_002
 configure_requires:
   ExtUtils::MakeMaker: '0'
@@ -36,7 +36,7 @@ no_index:
 provides:
   Any::Moose:
     file: lib/Any/Moose.pm
-    version: '0.25'
+    version: '0.26'
 requires:
   Carp: '0'
   perl: 5.006_002
@@ -48,10 +48,10 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Any-Moose
   homepage: https://github.com/moose/Any-Moose
   repository: https://github.com/moose/Any-Moose.git
-version: '0.25'
+version: '0.26'
 x_Dist_Zilla:
   perl:
-    version: '5.020001'
+    version: '5.021006'
   plugins:
     -
       class: Dist::Zilla::Plugin::Prereqs
@@ -83,7 +83,7 @@ x_Dist_Zilla:
           phase: build
           skip: []
       name: '@Author::ETHER/stale modules, build'
-      version: '0.035'
+      version: '0.036'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       config:
@@ -94,7 +94,7 @@ x_Dist_Zilla:
           phase: release
           skip: []
       name: '@Author::ETHER/stale modules, release'
-      version: '0.035'
+      version: '0.036'
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@Author::ETHER/ExecDir'
@@ -116,7 +116,7 @@ x_Dist_Zilla:
       config:
         Dist::Zilla::Plugin::GatherDir:
           exclude_filename:
-            - README.md
+            - README.pod
             - LICENSE
             - CONTRIBUTING
           exclude_match: []
@@ -211,7 +211,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::CPAN::Changes
       name: '@Author::ETHER/Test::CPAN::Changes'
-      version: '0.008'
+      version: '0.009'
     -
       class: Dist::Zilla::Plugin::Test::ChangesHasContent
       name: '@Author::ETHER/Test::ChangesHasContent'
@@ -219,7 +219,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::MinimumVersion
       name: '@Author::ETHER/Test::MinimumVersion'
-      version: '2.000005'
+      version: '2.000006'
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@Author::ETHER/PodSyntaxTests'
@@ -251,9 +251,12 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::Portability
       name: '@Author::ETHER/Test::Portability'
-      version: '2.000005'
+      version: '2.000006'
     -
       class: Dist::Zilla::Plugin::Git::Describe
+      config:
+        Dist::Zilla::Plugin::Git::Describe:
+          on_package_line: '1'
       name: '@Author::ETHER/Git::Describe'
       version: '0.004'
     -
@@ -461,7 +464,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Run::Role::Runner:
           fatal_errors: 1
           run:
-            - "bash -c \"if [[ `dirname %d` != .build ]]; then test -e .ackrc && grep -q -- '--ignore-dir=%d' .ackrc || echo '--ignore-dir=%d' >> .ackrc; fi\""
+            - "bash -c \"test -e .ackrc && grep -q -- '--ignore-dir=.latest' .ackrc || echo '--ignore-dir=.latest' >> .ackrc; if [[ `dirname %d` != .build ]]; then test -e .ackrc && grep -q -- '--ignore-dir=%d' .ackrc || echo '--ignore-dir=%d' >> .ackrc; fi\""
       name: '@Author::ETHER/.ackrc'
       version: '0.032'
     -
@@ -548,15 +551,6 @@ x_Dist_Zilla:
       name: '@Author::ETHER/CopyFilesFromRelease'
       version: '0.005'
     -
-      class: Dist::Zilla::Plugin::Run::AfterRelease
-      config:
-        Dist::Zilla::Plugin::Run::Role::Runner:
-          eval:
-            - "unlink 'README.md'"
-          fatal_errors: 1
-      name: '@Author::ETHER/remove old READMEs'
-      version: '0.032'
-    -
       class: Dist::Zilla::Plugin::Git::Commit
       config:
         Dist::Zilla::Plugin::Git::Commit:
@@ -567,7 +561,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::DirtyFiles:
           allow_dirty:
             - Changes
-            - README.md
+            - README.pod
             - LICENSE
             - CONTRIBUTING
           allow_dirty_match: []
@@ -582,7 +576,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.25
+          tag: v0.26
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local
@@ -638,6 +632,7 @@ x_Dist_Zilla:
           modules_to_remove:
             - Moose
             - Mouse
+            - Mouse::Util
       name: RemovePrereqs
       version: '5.031'
     -
@@ -659,6 +654,13 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::DynamicPrereqs
       name: DynamicPrereqs
       version: '0.009'
+    -
+      class: Dist::Zilla::Plugin::Test::CheckBreaks
+      config:
+        Dist::Zilla::Plugin::Test::CheckBreaks:
+          conflicts_module: Moose::Conflicts
+      name: Test::CheckBreaks
+      version: '0.011'
     -
       class: Dist::Zilla::Plugin::Git::Contributors
       config:
