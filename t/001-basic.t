@@ -1,10 +1,10 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More;
+use Test::More 0.88;
 
 do {
     package Point;
+    no warnings 'deprecated';
     use Any::Moose;
 
     has ['x', 'y'] => (

@@ -1,10 +1,15 @@
-package Any::Moose; # git description: v0.25-2-g151f81b
+package Any::Moose; # git description: v0.26-20-g4c2f951
 # ABSTRACT: (DEPRECATED) use Moo instead!
 # KEYWORDS: deprecated Moose Mouse abstraction layer object-oriented
-$Any::Moose::VERSION = '0.26';
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
+
 use 5.006_002;
 use strict;
 use warnings;
+
+our $VERSION = '0.27';
+
+warnings::warnif('deprecated', 'Any::Moose is deprecated. Please use Moo instead');
 
 # decide which backend to use
 our $PREFERRED;
@@ -203,8 +208,7 @@ sub mouse_is_preferred { $PREFERRED eq 'Mouse' }
 sub _is_moose_loaded { exists $INC{'Moose.pm'} }
 
 sub is_moose_loaded {
-    require Carp;
-    Carp::carp("Any::Moose::is_moose_loaded is deprecated. Please use Any::Moose::moose_is_preferred instead");
+    warnings::warnif('deprecated', "Any::Moose::is_moose_loaded is deprecated. Please use Any::Moose::moose_is_preferred instead");
     goto \&_is_moose_loaded;
 }
 
@@ -242,7 +246,7 @@ Any::Moose - (DEPRECATED) use Moo instead!
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 DEPRECATION
 
@@ -266,6 +270,17 @@ Any::Moose to Moo.
 For the sparse documentation Any::Moose used to include, see
 L<https://metacpan.org/module/SARTAK/Any-Moose-0.18/lib/Any/Moose.pm>
 
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Any-Moose>
+(or L<bug-Any-Moose@rt.cpan.org|mailto:bug-Any-Moose@rt.cpan.org>).
+
+There is also a mailing list available for users of this distribution, at
+L<http://lists.perl.org/list/moose.html>.
+
+There is also an irc channel available for users of this distribution, at
+L<C<#moose> on C<irc.perl.org>|irc://irc.perl.org/#moose>.
+
 =head1 AUTHORS
 
 =over 4
@@ -284,28 +299,13 @@ Stevan Little <stevan@iinteractive.com>
 
 =item *
 
-Tokuhiro Matsuno <tokuhirom@gmail.com>
-
-=item *
-
-Goro Fuji <gfuji@cpan.org>
-
-=item *
-
-Ricardo Signes <rjbs@cpan.org>
+藤 吾郎 (Fuji Goro) <gfuji@cpan.org>
 
 =back
 
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2015 by Best Practical Solutions.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
 =head1 CONTRIBUTORS
 
-=for stopwords Karen Etheridge gfx Graham Knop Stevan Little tokuhirom Chris 'BinGOs' Williams
+=for stopwords Karen Etheridge Tokuhiro Matsuno Ricardo Signes Graham Knop Stevan Little Chris 'BinGOs' Williams
 
 =over 4
 
@@ -315,7 +315,11 @@ Karen Etheridge <ether@cpan.org>
 
 =item *
 
-gfx <gfuji@cpan.org>
+Tokuhiro Matsuno <tokuhirom@gmail.com>
+
+=item *
+
+Ricardo Signes <rjbs@cpan.org>
 
 =item *
 
@@ -327,12 +331,15 @@ Stevan Little <stevan.little@iinteractive.com>
 
 =item *
 
-tokuhirom <tokuhirom@gmail.com>
-
-=item *
-
 Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
 
 =back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Best Practical Solutions.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

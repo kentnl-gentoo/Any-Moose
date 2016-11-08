@@ -1,9 +1,10 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 use Test::More;
 
 BEGIN { delete $ENV{ANY_MOOSE} }
+
+no warnings 'deprecated';
 
 BEGIN {
     eval 'use Mouse ()';

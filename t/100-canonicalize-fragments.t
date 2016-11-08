@@ -1,7 +1,8 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 use Test::More;
+
+no warnings 'deprecated';
 require Any::Moose;
 
 BEGIN { delete $ENV{ANY_MOOSE} }

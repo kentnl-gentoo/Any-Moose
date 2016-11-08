@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 use Test::More;
@@ -13,6 +12,8 @@ BEGIN {
 
     plan tests => 2;
 }
+
+no warnings 'deprecated';
 
 do {
     package Moused::Any::Moose;

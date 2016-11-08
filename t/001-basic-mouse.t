@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 use Test::More;
@@ -10,6 +9,8 @@ BEGIN {
     plan skip_all => "Mouse unavailable: $@" if $@;
     plan tests => 9;
 }
+
+no warnings 'deprecated';
 
 do {
     package Moused::Any::Moose;

@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 use Test::More;
@@ -13,6 +12,7 @@ BEGIN {
 
 {
     package My::Role;
+    no warnings 'deprecated';
     use Any::Moose '::Role';
 }
 

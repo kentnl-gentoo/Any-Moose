@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 use Test::More;
@@ -12,6 +11,7 @@ BEGIN {
 }
 
 package MyClass;
+no warnings 'deprecated';
 use Any::Moose;
 
 package main;
